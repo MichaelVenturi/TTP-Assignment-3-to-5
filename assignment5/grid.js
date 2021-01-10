@@ -86,4 +86,31 @@ jQuery(document).ready(function ($) {
     $(this).css("background-color", `${color}`);
     console.log(color);
   });
+
+  // fill all cells
+  $("#fill-all").on("click", function () {
+    console.log("fill-all clicked");
+    grid.find(".row").each(function () {
+      $(this)
+        .children()
+        .each(function () {
+          $(this).css("background-color", `${color}`);
+        });
+    });
+  });
+
+  // fill uncolored cells
+  $("#fill-uncolored").on("click", function () {
+    console.log("fill-uncolored clicked");
+    grid.find(".row").each(function () {
+      $(this)
+        .children()
+        .each(function () {
+          // checks that the background-color property is not set to any color
+          if ($(this).css("background-color") == "rgba(0, 0, 0, 0)") {
+            $(this).css("background-color", `${color}`);
+          }
+        });
+    });
+  });
 });
