@@ -98,4 +98,19 @@ jQuery(document).ready(function ($) {
         });
     });
   });
+
+  // fill uncolored cells
+  $("#fill-uncolored").on("click", function () {
+    console.log("fill-uncolored clicked");
+    grid.find(".row").each(function () {
+      $(this)
+        .children()
+        .each(function () {
+          // checks that the background-color property is not set to any color
+          if ($(this).css("background-color") == "rgba(0, 0, 0, 0)") {
+            $(this).css("background-color", `${color}`);
+          }
+        });
+    });
+  });
 });
