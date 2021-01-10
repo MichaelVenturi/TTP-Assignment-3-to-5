@@ -113,4 +113,16 @@ jQuery(document).ready(function ($) {
         });
     });
   });
+
+  // clear cells
+  $("#clear-all").on("click", function () {
+    console.log("clear-all clicked");
+    grid.find(".row").each(function () {
+      $(this)
+        .children()
+        .each(function () {
+          $(this).css("background-color", "transparent");
+        });
+    });
+  });
 });
