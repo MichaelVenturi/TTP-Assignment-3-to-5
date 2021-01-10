@@ -86,4 +86,16 @@ jQuery(document).ready(function ($) {
     $(this).css("background-color", `${color}`);
     console.log(color);
   });
+
+  // fill all cells
+  $("#fill-all").on("click", function () {
+    console.log("fill-all clicked");
+    grid.find(".row").each(function () {
+      $(this)
+        .children()
+        .each(function () {
+          $(this).css("background-color", `${color}`);
+        });
+    });
+  });
 });
