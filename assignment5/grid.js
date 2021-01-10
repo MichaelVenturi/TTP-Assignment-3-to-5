@@ -81,7 +81,9 @@ jQuery(document).ready(function ($) {
     $("#selected-color").html(`Selected color: ${color}`);
   });
   // change cell color
-  grid.on("click", ".cell", function () {
+  // setting it to mousedown instead of click helps
+  // with the click and drag function later
+  grid.on("mousedown", ".cell", function () {
     console.log("cell clicked");
     $(this).css("background-color", `${color}`);
     console.log(color);
@@ -124,5 +126,23 @@ jQuery(document).ready(function ($) {
           $(this).css("background-color", "transparent");
         });
     });
+  });
+
+  // click and drag
+  // track if the mouse is being held down
+  let isDragging = false;
+  $(document).on("mousedown", function () {
+    isDragging = true;
+    console.log(isDragging);
+  });
+  $(document).on("mouseup", function () {
+    isDragging = false;
+    console.log(isDragging);
+  });
+
+  grid.on("mouseover", ".cell", function () {
+    if (isDragging) {
+      $(this).css("background-color", `${color}`);
+    }
   });
 });
