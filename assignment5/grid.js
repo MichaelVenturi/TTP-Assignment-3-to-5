@@ -81,7 +81,7 @@ jQuery(document).ready(function ($) {
     $("#selected-color").html(`Selected color: ${color}`);
   });
   // change cell color
-  $(".cell").on("click", function () {
+  grid.on("click", ".cell", function () {
     console.log("cell clicked");
     $(this).css("background-color", `${color}`);
     console.log(color);
