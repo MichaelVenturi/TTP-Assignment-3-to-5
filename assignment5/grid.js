@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
   let grid = $("#grid");
 
+  // GRID FUNCTIONS
   //   add rows
   $("#add-row").on("click", function () {
     console.log("add-row clicked");
@@ -67,5 +68,22 @@ jQuery(document).ready(function ($) {
     } else {
       alert("This is your last column!");
     }
+  });
+
+  // COLOR FUNCTIONS
+  // color selection
+  let color;
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    console.log("submitted");
+    color = $("#color-select").val();
+    console.log(color);
+    $("#selected-color").html(`Selected color: ${color}`);
+  });
+  // change cell color
+  $(".cell").on("click", function () {
+    console.log("cell clicked");
+    $(this).css("background-color", `${color}`);
+    console.log(color);
   });
 });
